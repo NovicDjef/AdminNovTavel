@@ -1,0 +1,26 @@
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  /* border: 1px solid #ddd; */
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #192231;
+}
+
+tr:nth-child(even) {
+  background-color: #6b8dfc;;
+}
+
+tr:hover {
+  background-color: #c7950c;
+}
