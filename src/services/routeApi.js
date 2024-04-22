@@ -1,6 +1,6 @@
 import apiService from "./Api";
 
-// Requetes GET
+// API Requetes GET
 export const getchSomeRestaurant = () => {
     return apiService.get('/restaurants')
   }
@@ -21,7 +21,8 @@ export const getchSomeRestaurant = () => {
     return apiService.get('/users')
   }
   
-  // resquete POST :
+
+  // API Requete POST :
   
   
   export const fetchSomeGeolocation = (latitude, longitude) => {
@@ -39,6 +40,10 @@ export const getchSomeRestaurant = () => {
     }));
         return apiService.post('/commande', { commande : commande})
   }
+
+  export const addSomeRestaurant = (data) => {
+    return apiService.post('/restaurant', data);
+  };
 
   export const fetchSomeAdressLivraison = (adresse) => {
     console.debug("Adresse de livraion: ", adresse);
@@ -61,3 +66,9 @@ export const getchSomeRestaurant = () => {
   export const fetchSomeGame = ({lotId, userId, selectedNumbers, isWinner}) => {
     return apiService.post('./games', {lotId, userId, selectedNumbers, isWinner})
   }
+
+
+  // API requete Update
+  export const updateSomeRestaurant = (id, data) => {
+    return apiService.patch(`/restaurant/${id}`, data);
+  };

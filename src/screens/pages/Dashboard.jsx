@@ -3,6 +3,7 @@ import { BsCarFront, BsCarFrontFill, BsFillArchiveFill, BsFillGrid3X3GapFill, Bs
 import { BarChart, Bar, LineChart, Line, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 import Repas from './Repas';
 import Users from './Users';
+import { useSelector } from 'react-redux';
 
 export default function Dasboard() {
 
@@ -92,6 +93,10 @@ const data = [
         amt: 1100
     },
 ]
+const users = useSelector(state => state.users.users)
+const commandes = useSelector(state => state.commandes.commandes)
+const restaurants = useSelector(state => state.restaurants.restaurants)
+const repas = useSelector(state => state.repas.repas)
 const datas = Array.from({ length: 10 }, (_, rowIndex) =>
 Array.from({ length: 6 }, (_, colIndex) => `${rowIndex + 1}-${colIndex + 1}`)
 );
@@ -106,30 +111,30 @@ Array.from({ length: 6 }, (_, colIndex) => `${rowIndex + 1}-${colIndex + 1}`)
             <div className='card'>
                 <div className='card-inner'>
                     <h3> Utilisateurs</h3>
-                    <BsFillArchiveFill className='card_icon' />
-                </div>
-                <h1>106</h1>
-            </div>
-            <div className='card'>
-                <div className='card-inner'>
-                    <h3>Destinations</h3>
-                    <BsFillGrid3X3GapFill className='card_icon' />
-                </div>
-                <h1>34</h1>
-            </div>
-            <div className='card'>
-                <div className='card-inner'>
-                    <h3>Utilisateurs</h3>
                     <BsPeopleFill className='card_icon' />
                 </div>
-                <h1>1509</h1>
+                <h1>{users.length}</h1>
             </div>
             <div className='card'>
                 <div className='card-inner'>
-                    <h3> Transactions</h3>
+                    <h3>Commandes</h3>
                     <BsFillBellFill className='card_icon' />
                 </div>
-                <h1>1703</h1>
+                <h1>{commandes.length}</h1>
+            </div>
+            <div className='card'>
+                <div className='card-inner'>
+                    <h3>Restaurants</h3>
+                    <BsFillArchiveFill className='card_icon' />
+                </div>
+                <h1>{restaurants.length}</h1>
+            </div>
+            <div className='card'>
+                <div className='card-inner'>
+                    <h3> Repas</h3>
+                    <BsFillGrid3X3GapFill className='card_icon' />
+                </div>
+                <h1>{repas.length}</h1>
             </div>
         </div>
         

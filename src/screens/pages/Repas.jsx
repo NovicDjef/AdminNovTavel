@@ -26,7 +26,7 @@
         return `${day}/${month}/${year} à ${hour}:${minute}`;
     };
     const [searchTerm, setSearchTerm] = useState('');
-
+    const baseURL= 'http://172.20.10.4:3000';
     const handleInputChange = (e) => {
       setSearchTerm(e.target.value);
     };
@@ -77,7 +77,9 @@
               {plats.map((plat, index) => (
                   <tr key={index}>
                       <td>{plat.id}</td>
-                      <td>{plat.image}</td>
+                      <td>
+                        <img src={baseURL+`/images/${plat.image}`} alt="PLats" style={{ width: '100px', height: '70px' }} />
+                      </td>
                       <td>{plat.nom}</td>
                       <td>{plat.prix}</td>
                       <td>{plat.description}</td>
